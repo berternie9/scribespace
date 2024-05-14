@@ -1,0 +1,41 @@
+:root {
+    --sans-serif: Arial, Helvetica, sans-serif;
+    --pink: fuchsia;
+    --blue: #00d3d7;
+    --grey: #7a7878;
+}
+
+.left-nav, .right-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+}
+
+
+body {
+    min-height: 100%;
+    background: linear-gradient(rgba(251, 110, 235, 0.433), rgba(69, 184, 255, 0.426));
+}
+
+html {
+    height: 100%
+}
+
+img {
+    border-radius: 1rem;
+}
+
+nav {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: var(--grey);
+    font-weight: bold;
+}

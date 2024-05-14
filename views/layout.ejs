@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/style.css">
+    <script defer src="app.js"></script>
+    <title>ScribeSpace</title>
+</head>
+<div class="page-wrapper">
+    <header>
+        <nav>
+            <div class="left-nav">
+                <% if (isLoggedIn) { %>
+                    <a href="/">Home</a>
+                <% } %>
+            </div>
+            <div class="right-nav">
+                <% if (isLoggedIn) { %>
+                    <div>Logged in as <%= currentUser.name %></div>
+                    <form action="/logout?_method=delete" method="post">
+                        <button>Logout</button>
+                    </form>
+                <% } else { %>
+                    <a href="/login">Login</a>
+                <% } %>
+                <a href="/register">Register</a>
+            </div>
+        </nav>
+        <div class="title"><a href="/">ScribeSpace</a></div>
+    </header>
+    <main class="main-content">
+        <%- body %>
+    </main>
+</div>
+<footer></footer>
+</html>
