@@ -12,9 +12,7 @@ const ensureLoggedIn = require('./middlewares/ensure_logged_in.js');
 
 const app = express();
 
-// const port = 8080;
-const port = process.env.PORT || 3000;
-
+const port = process.env.PORT || 8080;
 
 app.set('view engine', 'ejs');
 
