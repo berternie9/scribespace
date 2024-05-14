@@ -11,7 +11,10 @@ const setCurrentUser = require('./middlewares/set_current_user.js');
 const ensureLoggedIn = require('./middlewares/ensure_logged_in.js');
 
 const app = express();
-const port = 8080;
+
+// const port = 8080;
+const port = process.env.PORT || 3000;
+
 
 app.set('view engine', 'ejs');
 
@@ -22,7 +25,7 @@ app.use(express.urlencoded());
 
 app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 3 },
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || "secret",
     resave: false,
     saveUninitialized: true
 }))
