@@ -13,6 +13,7 @@ img {
 a {
     text-decoration: none;
     color: black;
+    vertical-align: top;
 }
 
 div:has(img) {

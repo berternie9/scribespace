@@ -1,0 +1,9 @@
+<div class="user-reviews">
+    <% for (let review of userReviews) { %>
+        <a href="/books/<%= review.book_id %>"><div class="property">Title: </div><%= review.title%></a>
+        <div class="author"><div class="property">Author: </div><%= review.author %></div>
+        <div class="year"><div class="property">Year: </div><%= review.publication_year %></div>
+        <div class="review-content"><%= review.content%></div>
+        <div class="review-datetime">Submitted on: <%= review.datetime%></div>
+    <% } %>                
+</div>

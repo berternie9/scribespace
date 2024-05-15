@@ -1,0 +1,10 @@
+<div class="page-title">Edit your book <%= book.title %></div>
+<form action="/books/<%= book.id %>?_method=put" method="post">
+    <label for="">Title</label>
+    <input type="text" name="title" value="<%= book.title %>">
+    <label for="">Author</label>
+    <input type="text" name="author" value="<%= book.author %>">
+    <label for="">Publication Year</label>
+    <input type="text" name="publication_year" value="<%= book.publication_year %>">
+    <button class="btn-link">Submit</button>
+</form>

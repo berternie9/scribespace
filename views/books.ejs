@@ -1,0 +1,44 @@
+<div class="page-title">All Books</div>
+<div class="all-books">
+    <div class="btn-link-wrapper"><a class="btn-link" href="/books/new">Add custom book</a></div>
+    <div class="public-books">
+        <% for (let book of booksPublic) { %>
+            <a href="/books/<%=book.id%>">
+                <div class="book-tile">
+                    <div class="book-tile-top">
+                        <img class="book-img" src="<%=book.image_url%>" alt="book">
+                    </div>
+                    <div class="book-tile-bottom">
+                        <div class="book-title">
+                            <div class="property">Title: </div><%= book.title%>
+                        </div>
+                        <div class="author"><div class="property">Author: </div><%= book.author %></div>
+                        <div class="year"><div class="property">Year: </div><%= book.publication_year %></div>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+
+    <% if (booksPrivate.length > 0) { %>
+        <div class="page-subtitle">Added by <span class="name-span"><%= currentUser.name %></span></div>
+        <div class="private-books">
+            <% for (let book of booksPrivate) { %>
+                <a href="/books/<%=book.id%>">
+                    <div class="book-tile">
+                        <div class="book-tile-top">
+                            <img class="book-img" src="<%=book.image_url%>" alt="book">
+                        </div>
+                        <div class="book-tile-bottom">
+                            <div class="book-title">
+                                <div class="property">Title: </div><%= book.title%>
+                            </div>
+                            <div class="author"><div class="property">Author: </div><%= book.author %></div>
+                            <div class="year"><div class="property">Year: </div><%= book.publication_year %></div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    <% } %>
+</div>

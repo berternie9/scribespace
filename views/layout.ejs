@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/style.css">
-    <script defer src="app.js"></script>
+    <script defer src="/app.js"></script>
     <title>ScribeSpace</title>
 </head>
 <div class="page-wrapper">
@@ -14,15 +14,14 @@
             <div class="left-nav">
                 <% if (isLoggedIn) { %>
                     <a href="/">Home</a>
-                    <a href="/all_books">All Books</a>
-                    <a href="/user_reviews/<%= currentUser.id %>">My Reviews</a>
+                    <a href="/books">All Books</a>
+                    <a href="/reviews"><span class="name-span"><%= currentUser.name %></span>'s Reviews</a>
                 <% } %>
             </div>
             <div class="right-nav">
                 <% if (isLoggedIn) { %>
-                    <div>Logged in as <%= currentUser.name %></div>
                     <form action="/logout?_method=delete" method="post">
-                        <button>Logout</button>
+                        <button class="logout">Logout</button>
                     </form>
                 <% } else { %>
                     <a href="/login">Login</a>
@@ -30,7 +29,7 @@
                 <a href="/register">Register</a>
             </div>
         </nav>
-        <div class="title"><a href="/">ScribeSpace</a></div>
+        <div><a class="title" href="/">ScribeSpace</a></div>
     </header>
     <main class="main-content">
         <%- body %>

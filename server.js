@@ -7,8 +7,11 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const sessionRouter = require('./routes/session_router.js');
 const homeRouter = require('./routes/home_router.js');
+const bookRouter = require('./routes/book_router.js');
+const reviewRouter = require('./routes/review_router.js');
 const setCurrentUser = require('./middlewares/set_current_user.js');
 const ensureLoggedIn = require('./middlewares/ensure_logged_in.js');
+const customFunctions = require('./middlewares/custom_functions.js');
 
 const app = express();
 
@@ -29,10 +32,13 @@ app.use(session({
 }))
 
 app.use(setCurrentUser);
+app.use(customFunctions);
 
 app.use(homeRouter);
 app.use(sessionRouter);
 app.use(ensureLoggedIn);
+app.use(bookRouter);
+app.use(reviewRouter);
 
 app.listen(port, () => {
     console.log(`Working on port ${port}`);

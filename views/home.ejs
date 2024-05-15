@@ -1,0 +1,23 @@
+<% if (isLoggedIn) { %>
+    <div class="page-title"><span class="name-span"><%= currentUser.name %></span>'s Library</div>
+    <div class="library">
+        <div class="library-books">
+            <% for (let book of booksUser) { %>
+                <a href="/books/<%=book.id%>">
+                    <div class="book-tile">
+                        <div class="book-tile-top">
+                            <img class="book-img" src="<%=book.image_url%>" alt="book">
+                        </div>
+                        <div class="book-tile-bottom">
+                            <div class="book-title">                         
+                                <div class="property">Title: </div><%= book.title%>
+                            </div>
+                            <div class="author"><div class="property">Author: </div><%= book.author %></div>
+                            <div class="year"><div class="property">Year: </div><%= book.publication_year %></div>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    </div>
+<% } %>

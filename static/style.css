@@ -1,8 +1,81 @@
 :root {
     --sans-serif: Arial, Helvetica, sans-serif;
     --pink: fuchsia;
+    --darkpink: rgb(196, 27, 142);
+    --lightpink: rgb(210, 113, 153);
+    --lightestpink: rgb(213, 146, 174);
     --blue: #00d3d7;
+    --cream: rgb(246, 226, 215);
     --grey: #7a7878;
+    --transparent-white: rgba(255,255,255,0.3);
+    --tile-width: 12rem;
+    --book-show-width: 18rem;
+}
+
+.book-show {
+    margin: 1rem 0;
+}
+
+.book-show-top {
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.book-show-img {
+    width: var(--book-show-width);
+}
+
+.book-tile {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,.3);
+    width: var(--tile-width);
+    margin: 1rem;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+  }
+  
+.book-tile:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.book-tile-bottom {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.book-tile-bottom-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-img {
+    width: var(--tile-width);
+    cursor: pointer;
+}
+
+.btn-link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-link {
+    border: 2px white solid;
+    border-radius: 5px;
+    background: var(--transparent-white);
+    padding: 3px 4px;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    color: var(--darkpink);
+}
+
+.input-line {
+    padding: 0.6rem 0;
 }
 
 .left-nav, .right-nav {
@@ -10,23 +83,103 @@
     gap: 1rem;
 }
 
-.title {
-    text-align: center;
-    font-size: 3rem;
+.left-nav > *, .right-nav > * {
+    border: 2px white solid;
+    border-radius: 5px;
+    background: var(--transparent-white);
+    padding: 3px 4px;
 }
 
+.logout {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: inherit;
+    color: var(--darkpink);
+    cursor: pointer;
+}
+
+.main-content {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.name-span {
+    text-transform: capitalize;
+}
+
+.property {
+    color: var(--darkpink);
+    display: inline;
+}
+
+.public-books {
+    border-bottom: var(--grey) 1px solid;
+}
+
+.public-books, .private-books, .library-books {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.review-textbox > * {
+    display: block;
+}
+
+.review-datetime, .review-writer, .review-my-review {
+    color: var(--darkpink);
+}
+
+.review-content {
+    border-bottom: 2px var(--grey) solid;
+    border-top: 2px var(--grey) solid;
+    padding: 1rem 0;
+
+}
+
+.title {
+    display: block;
+    width:fit-content;
+    margin: 1rem auto;
+    font-size: 3rem;
+    color: var(--darkpink);
+}
+
+.page-title {
+    display: block;
+    width:fit-content;
+    margin: 1rem auto;
+    font-size: 2rem;
+    color: var(--lightpink);
+}
+
+.page-subtitle {
+    display: block;
+    width:fit-content;
+    margin: 1rem auto;
+    font-size: 1.3rem;
+    color: var(--lightestpink);
+}
 
 body {
     min-height: 100%;
-    background: linear-gradient(rgba(251, 110, 235, 0.433), rgba(69, 184, 255, 0.426));
+    background: var(--cream);
+}
+
+button {
+    border: 2px white solid;
+    border-radius: 5px;
+    background: var(--transparent-white);
+    padding: 3px 4px;
+    display: inline-block;
+    color: var(--darkpink);
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 html {
-    height: 100%
-}
-
-img {
-    border-radius: 1rem;
+    min-height: 100%;
 }
 
 nav {
@@ -36,6 +189,36 @@ nav {
 }
 
 nav a {
-    color: var(--grey);
-    font-weight: bold;
+    color: var(--darkpink);
+}
+
+textarea {
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .public-books, .private-books, .library-books {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 900px) {
+    .public-books, .private-books, .library-books {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .public-books, .private-books, .library-books {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1500px) {
+    .public-books, .private-books, .library-books {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
