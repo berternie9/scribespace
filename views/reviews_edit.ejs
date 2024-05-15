@@ -1,0 +1,6 @@
+<div class="page-title">Edit your review for <%= review.title %></div>
+<form class="review-textbox" action="/reviews/<%= review.review_id %>?_method=put" method="post">
+    <label class="review-my-review" for="">My review: </label>
+    <textarea name="review_content"><%= review.content %></textarea>
+    <button class="btn-link">Submit</button>
+</form>
