@@ -25,7 +25,7 @@
         <div class="private-books">
             <% for (let book of booksPrivate) { %>
                 <a href="/books/<%=book.id%>">
-                    <div class="book-tile">
+                    <div class="book-tile <% if (!book.is_public) { %> custom-book <% } %>">
                         <div class="book-tile-top">
                             <img class="book-img" src="<%=book.image_url%>" alt="book">
                         </div>

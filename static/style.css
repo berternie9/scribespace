@@ -65,6 +65,7 @@
     margin: 1rem;
     display: grid;
     grid-template-rows: max-content 1fr;
+    border: 2px white solid;
   }
   
 .book-tile:hover {
@@ -101,6 +102,10 @@
     margin-bottom: 1rem;
     display: inline-block;
     color: var(--darkpink);
+}
+
+.custom-book {
+    border: var(--lightestpink) 2px solid;
 }
 
 .delete-book-btn {

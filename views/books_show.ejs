@@ -1,5 +1,5 @@
 <div class="book-show">
-    <div class="book-show-top">
+    <div class="book-show-top <% if (!book.is_public) { %> custom-book <% } %>">
         <img class="book-show-img" src="<%=book.image_url%>" alt="book">
     </div>
     <div class="book-show-bottom">
@@ -19,51 +19,6 @@
     </div>
 </div>
 
-
-<% if (allReviews.length > 0) { %>
-    <div class="page-subtitle">All Reviews:</div>
-    <div class="all-reviews-wrapper">
-        <% for (let review of allReviews) { %>
-            <div class="review-block-wrapper">
-                <div class="review-content-wrapper">
-                    <div class="review-content">Review: </div><%= review.content%>
-                </div>
-                <div class="review-datetime">Submitted on: </div><%= review.datetime%>
-                <div class="review-writer">Submitted by: </div><%= review.writer_name%> (<%= review.writer_email%>)
-            </div>
-        <% } %>
-    </div>
-<% } %>
-
-<% if (userReview) { %>
-    <div class="page-subtitle">My Review:</div>
-    <div>
-        <div class="user-review-wrapper">
-            <div class="review-content-wrapper">
-                <div class="review-content">Review: </div><%= userReview.content%>
-            </div>
-            <div class="review-datetime">Submitted on: </div><%= userReview.datetime%>
-            <div class="review-writer">Submitted by: </div><%= userReview.writer_name%> (<%= userReview.writer_email%>)
-            <div class="review-edit"><a class="btn-link" href="/reviews/<%= userReview.id %>/edit">Edit my review</a></div>
-            <div class="review-delete">
-                <form action="/reviews/<%= userReview.id %>?_method=delete" method="post">
-                    <input type="hidden" name="book_id" value="<%= book.id%>">
-                    <button>Delete my review</button>
-                </form>
-            </div>
-        </div>
-    </div>
-<% } %>
-
-<% if (isInLibrary && !userReview) { %>
-    <form class="review-textbox" action="/reviews" method="post">
-        <label class="review-my-review" for="">My review: </label>
-        <textarea name="review_content"></textarea>
-        <input type="hidden" name="book_id" value="<%= book.id%>">
-        <button>Post</button>
-    </form>
-<% } %>
-    
 <% if (isInLibrary) { %>
     <div class="page-subtitle">My notes:</div>
     <% if (notes.length > 0) { %>
@@ -95,4 +50,48 @@
         <input type="hidden" name="book_id" value="<%= book.id%>">
         <button>Post</button>
     </form>
+<% } %>
+
+<% if (userReview) { %>
+    <div class="page-subtitle">My Review:</div>
+    <div>
+        <div class="user-review-wrapper">
+            <div class="review-content-wrapper">
+                <div class="review-content">Review: </div><%= userReview.content%>
+            </div>
+            <div class="review-datetime">Submitted on: </div><%= userReview.datetime%>
+            <div class="review-writer">Submitted by: </div><%= userReview.writer_name%> (<%= userReview.writer_email%>)
+            <div class="review-edit"><a class="btn-link" href="/reviews/<%= userReview.id %>/edit">Edit my review</a></div>
+            <div class="review-delete">
+                <form action="/reviews/<%= userReview.id %>?_method=delete" method="post">
+                    <input type="hidden" name="book_id" value="<%= book.id%>">
+                    <button>Delete my review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<% } %>
+
+<% if (isInLibrary && !userReview) { %>
+    <form class="review-textbox" action="/reviews" method="post">
+        <label class="review-my-review" for="">My review: </label>
+        <textarea name="review_content"></textarea>
+        <input type="hidden" name="book_id" value="<%= book.id%>">
+        <button>Post</button>
+    </form>
+<% } %>
+    
+<% if (allReviews.length > 0) { %>
+    <div class="page-subtitle">All Reviews:</div>
+    <div class="all-reviews-wrapper">
+        <% for (let review of allReviews) { %>
+            <div class="review-block-wrapper">
+                <div class="review-content-wrapper">
+                    <div class="review-content">Review: </div><%= review.content%>
+                </div>
+                <div class="review-datetime">Submitted on: </div><%= review.datetime%>
+                <div class="review-writer">Submitted by: </div><%= review.writer_name%> (<%= review.writer_email%>)
+            </div>
+        <% } %>
+    </div>
 <% } %>
