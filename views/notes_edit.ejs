@@ -1,0 +1,6 @@
+<div class="page-title">Edit your note for <%= note.title %></div>
+<form class="note-textbox" action="/notes/<%= note.note_id %>?_method=put" method="post">
+    <label class="new-note" for="">Edited note: </label>
+    <textarea name="note_content"><%= note.content %></textarea>
+    <button class="btn-link">Submit</button>
+</form>

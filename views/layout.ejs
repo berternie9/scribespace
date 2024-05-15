@@ -16,7 +16,7 @@
         <nav>
             <div class="left-nav">
                 <% if (isLoggedIn) { %>
-                    <a href="/">Home</a>
+                    <a href="/"><span class="name-span"><%= currentUser.name %></span>'s Library</a>
                     <a href="/books">All Books</a>
                     <a href="/reviews"><span class="name-span"><%= currentUser.name %></span>'s Reviews</a>
                 <% } %>

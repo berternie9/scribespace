@@ -55,12 +55,12 @@ router.put('/reviews/:id', (req, res) => {
 
 router.delete('/reviews/:id', (req, res) => {
     const reviewId = req.params.id;
-    const bookId = req.params.book_id;
     const userId = req.session.userId;
-    const sql = `DELETE FROM reviews WHERE id = $1 AND user_id = $2;`;
+    const sql = `DELETE FROM reviews WHERE id = $1 AND user_id = $2 RETURNING book_id;`;
     const sqlParams = [reviewId, userId];
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
+        const bookId = result.rows[0].book_id;
         res.redirect(`/books/${bookId}`)
     })
 })

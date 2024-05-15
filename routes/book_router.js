@@ -3,11 +3,11 @@ const db = require('../db');
 const router = express.Router();
 
 router.get('/books', (req, res) => {
-    const sql = `SELECT * FROM books WHERE is_public;`;
+    const sql = `SELECT * FROM books WHERE is_public ORDER BY title;`;
     db.query(sql, (err, result) => {
         if (err) console.log(err);
         const booksPublic = result.rows;
-        const sql = `SELECT * FROM books WHERE NOT is_public AND id IN (SELECT book_id FROM freetext_books_from_user WHERE user_id = $1);`;
+        const sql = `SELECT * FROM books WHERE NOT is_public AND id IN (SELECT book_id FROM freetext_books_from_user WHERE user_id = $1) ORDER BY title;`;
         const sqlParams = [req.session.userId];
         db.query(sql, sqlParams, (err, result) => {
             if (err) console.log(err);
@@ -66,10 +66,10 @@ router.get('/books/:id', (req, res) => {
                 if (result.rows.length > 0) {
                     isFreetextFromUser = true;
                 }
-                const sql = `SELECT reviews.id AS id, user_id AS writer_id, book_id, content, datetime, users.name AS writer_name, users.email AS writer_email FROM reviews JOIN users ON reviews.user_id = users.id WHERE book_id = $1 AND user_id = $2;`;
-                const sqlParams = [bookId, req.session.userId];
                 let userReview = {};
                 let allReviews = [];
+                const sql = `SELECT reviews.id AS id, user_id AS writer_id, book_id, content, datetime, users.name AS writer_name, users.email AS writer_email FROM reviews JOIN users ON reviews.user_id = users.id WHERE book_id = $1 AND user_id = $2;`;
+                const sqlParams = [bookId, req.session.userId];
                 db.query(sql, sqlParams, (err, result) => {
                     if (err) console.log(err);
                     userReview = result.rows[0];
@@ -78,7 +78,14 @@ router.get('/books/:id', (req, res) => {
                     db.query(sql, sqlParams, (err, result) => {
                         if (err) console.log(err);
                         allReviews = result.rows;
-                        res.render('books_show', { book: book, isInLibrary: isInLibrary, isFreetextFromUser: isFreetextFromUser, userReview: userReview, allReviews: allReviews });
+                        let notes = [];
+                        const sql = `SELECT id, content, datetime FROM notes WHERE book_id = $1 AND user_id = $2 ORDER BY datetime;`;
+                        const sqlParams = [bookId, req.session.userId];
+                        db.query(sql, sqlParams, (err, result) => {
+                            if (err) console.log(err);
+                            notes = result.rows;
+                            res.render('books_show', { book: book, isInLibrary: isInLibrary, isFreetextFromUser: isFreetextFromUser, userReview: userReview, allReviews: allReviews, notes: notes });
+                        })
                     })
                 })
             })

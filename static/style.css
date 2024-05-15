@@ -13,7 +13,7 @@
     --website-font-family: "Gaegu", sans-serif; 
 }
 
-.all-reviews-wrapper, .user-review-wrapper {
+.all-reviews-wrapper, .user-review-wrapper, .all-notes-wrapper {
     height: 12rem;
     overflow: auto;
     padding: 0.5rem;
@@ -136,6 +136,17 @@
     padding: 3px 4px;
 }
 
+.login-btn {
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+}
+
+.login-email, .login-password {
+    margin: 1rem 0;
+    color: var(--darkpink);
+}
+
 .logout {
     padding: 0;
     border: none;
@@ -152,6 +163,37 @@
 
 .name-span {
     text-transform: capitalize;
+}
+
+.note-block-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: space-evenly;
+}
+
+.note-block-left {
+    width: 18rem;
+}
+
+.note-block-right {
+    align-self: center;
+}
+
+.page-title {
+    display: block;
+    width:fit-content;
+    margin: 1rem auto;
+    font-size: 2.2rem;
+    color: var(--lightpink);
+}
+
+.page-subtitle {
+    display: block;
+    width:fit-content;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+    color: var(--lightestpink);
 }
 
 .property {
@@ -172,28 +214,32 @@
     margin: 1rem 0;
 }
 
-.review-textbox > * {
+.review-textbox > *, .note-textbox > * {
     display: block;
+    margin: 0.5rem 0;
 }
 
-.review-block-wrapper {
+.review-textbox, .note-textbox {
+    margin: 1rem 0;
+}
+
+.review-block-wrapper, .note-block-wrapper {
     border-bottom: 1px var(--lightestpink) solid;
     padding-bottom: 2rem;
 }
 
-.review-block-wrapper:last-child {
+.review-block-wrapper:last-child, .note-block-wrapper:last-child {
     border-bottom: none;
 }
 
-.review-content, .review-datetime, .review-writer, .review-my-review {
+.review-content, .review-datetime, .review-writer, .review-my-review, .new-note, .note-content, .note-datetime {
     color: var(--darkpink);
 }
 
-.review-content-wrapper {
+.review-content-wrapper, .note-content-wrapper {
     border-bottom: 1px var(--grey) solid;
     padding: 1rem 0;
     margin-bottom: 1rem;
-
 }
 
 .title {
@@ -204,21 +250,10 @@
     color: var(--darkpink);
 }
 
-.page-title {
-    display: block;
-    width:fit-content;
-    margin: 1rem auto;
-    font-size: 2.2rem;
-    color: var(--lightpink);
-}
 
-.page-subtitle {
-    display: block;
-    width:fit-content;
-    margin: 1rem auto;
-    font-size: 1.5rem;
-    color: var(--lightestpink);
-}
+
+
+
 
 body {
     min-height: 100%;
@@ -246,6 +281,13 @@ html {
     font-family: var(--website-font-family);
 }
 
+input {
+    border-radius: 5px;
+    width: 8rem;
+    padding: 2px;
+    font-family: inherit;
+}
+
 nav {
     margin: 1rem;
     display: flex;
@@ -257,7 +299,11 @@ nav a {
 }
 
 textarea {
-    width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+    width: 8rem;
+    padding: 2px;
+    font-family: inherit;
 }
 
 @media (min-width: 600px) {

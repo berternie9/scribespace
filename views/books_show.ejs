@@ -62,10 +62,37 @@
         <input type="hidden" name="book_id" value="<%= book.id%>">
         <button>Post</button>
     </form>
-
-    <% } %>
+<% } %>
     
-
-My personal notes (hideable)
-- Edit each personal note
-
+<% if (isInLibrary) { %>
+    <div class="page-subtitle">My notes:</div>
+    <% if (notes.length > 0) { %>
+        <div class="all-notes-wrapper">
+            <% for (let note of notes) { %>
+                <div class="note-block-wrapper">
+                    <div class="note-block-left">
+                        <div class="note-content-wrapper">
+                            <div class="note-content">Note: </div><%= note.content%>
+                        </div>
+                        <div class="note-datetime">Submitted on: </div><%= note.datetime%>
+                    </div>
+                    <div class="note-block-right">
+                        <div class="note-edit"><a class="btn-link" href="/notes/<%= note.id %>/edit">Edit</a></div>
+                        <div class="note-delete">
+                            <form action="/notes/<%= note.id %>?_method=delete" method="post">
+                                <input type="hidden" name="book_id" value="<%= book.id%>">
+                                <button>Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+    <form class="note-textbox" action="/notes" method="post">
+        <label class="new-note" for="">New note: </label>
+        <textarea name="note_content"></textarea>
+        <input type="hidden" name="book_id" value="<%= book.id%>">
+        <button>Post</button>
+    </form>
+<% } %>

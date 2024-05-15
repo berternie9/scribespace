@@ -25,4 +25,5 @@ Check out my app [here](https://scribespace.onrender.com/)!
 - Placehold.co
 
 ## Next steps
-- Include an option to have a virtual book club (or plan one IRL).
+- Include an option to have a virtual book club.
+- Search public and library books 
