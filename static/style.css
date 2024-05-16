@@ -293,20 +293,24 @@
     color: var(--darkpink);
 }
 
-.vocab-content {
-    margin: 0 1rem;
-}
-
-.vocab-textbox textarea {
-    min-width: 5rem;
-    height: 2.2rem;
-}
-
 .vocab-block-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     max-width: 80vw;
+}
+
+.vocab-btn-wrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.vocab-content {
+    margin: 0 1rem;
+}
+
+.vocab-delete {
+    display: inline-block;
 }
 
 .vocab-edit {
@@ -325,13 +329,9 @@
     height: fit-content;
 }
 
-.vocab-btn-wrapper {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.vocab-delete {
-    display: inline-block;
+.vocab-textbox textarea {
+    min-width: 5rem;
+    height: 2.2rem;
 }
 
 
