@@ -25,7 +25,7 @@ router.post('/login', (req, res) => {
                 return res.render('login',  { errorMessage: "Username or password not found" });
             }          
             req.session.userId = result.rows[0].id;
-            res.redirect('/');
+            res.redirect('/bookshelf');
         });
     });
 })
@@ -71,6 +71,5 @@ router.post('/register', (req, res) => {
         })
     })
 })
-
 
 module.exports = router;
