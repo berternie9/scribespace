@@ -5,13 +5,14 @@
             <div class="vocab-block-wrapper">
                 <div class="vocab-content-wrapper">
                     <div class="vocab-content"><%= vocab.content%></div>
+                    <div class="vocab-info hidden">
+                        <a href="/vocabulary/<%= vocab.book_id %>"><div class="property">Title: </div><%= vocab.title%></a>
+                        <div class="author"><div class="property">Author: </div><%= vocab.author %></div>
+                        <div class="vocab-datetime">Submitted on: </div><%= vocab.datetime%>
+                    </div>
                 </div>
-                <div class="vocab-info">
-                    <a href="/vocabulary/<%= vocab.book_id %>"><div class="property">Title: </div><%= vocab.title%></a>
-                    <div class="author"><div class="property">Author: </div><%= vocab.author %></div>
-                    <div class="vocab-datetime">Submitted on: </div><%= vocab.datetime%>
-                </div>
-                <div class="vocab-block-right">
+                <div class="vocab-btn-wrapper">
+                    <button class="vocab-info-btn">Info</button>
                     <div class="vocab-edit"><a class="btn-link" href="/vocabulary/<%= vocab.vocabulary_id %>/edit">Edit</a></div>
                     <div class="vocab-delete">
                         <form action="/vocabulary/<%= vocab.id %>?_method=delete" method="post">

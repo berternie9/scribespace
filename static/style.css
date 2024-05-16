@@ -126,6 +126,10 @@
     font-weight: 400;
     font-style: normal;
 }
+
+.hidden {
+    display: none;
+}
   
 .input-line {
     padding: 0.6rem 0;
@@ -161,7 +165,8 @@
 }
 
 .login-email, .login-password {
-    margin: 1rem 0;
+    margin: 1rem auto;
+    width: fit-content;
     color: var(--darkpink);
 }
 
@@ -243,7 +248,7 @@
 
 .review-block-wrapper, .note-block-wrapper, .vocab-block-wrapper {
     border-bottom: 1px var(--lightestpink) solid;
-    padding-bottom: 2rem;
+    padding: 1rem 0;
 }
 
 .review-block-wrapper:last-child, .note-block-wrapper:last-child, .vocab-block-wrapper:last-child {
@@ -269,7 +274,7 @@
 }
 
 .vocab-content {
-    margin-bottom: 1rem;
+    margin: 0 1rem;
 }
 
 .vocab-textbox textarea {
@@ -277,7 +282,37 @@
     height: 2.2rem;
 }
 
+.vocab-block-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 80vw;
+}
 
+.vocab-edit {
+    display: inline-block;
+}
+
+.vocab-edit a {
+    margin: 0;
+}
+
+.vocab-info {
+    margin: 1rem;
+}
+
+.vocab-info-btn {
+    height: fit-content;
+}
+
+.vocab-btn-wrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.vocab-delete {
+    display: inline-block;
+}
 
 
 body {
@@ -294,7 +329,7 @@ button {
     display: inline-block;
     color: var(--darkpink);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: small;
     font-family: inherit;
 }
 
@@ -385,6 +420,14 @@ textarea {
     }
 
     .btn-link {
+        font-size: medium;
+    }
+
+    .vocab-block-wrapper {
+        max-width: 50vw;
+    }
+
+    button {
         font-size: medium;
     }
 }
