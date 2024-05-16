@@ -1,5 +1,5 @@
 ## ScribeSpace 
-ScribeSpace is an online reading journal, where you can:
+ScribeSpace is an online reading companion, where you can:
 - Add books that you are reading to your bookshelf.
 - Scribble your notes while reading a book. 
 - Share reviews about the book, which other users can see. 
