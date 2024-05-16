@@ -1,0 +1,6 @@
+<div class="page-title">Edit your new word from <%= vocabulary.title %></div>
+<form class="vocab-textbox" action="/vocabulary/<%= vocabulary.vocabulary_id %>?_method=put" method="post">
+    <label class="new-vocab" for="">Edited word: </label>
+    <textarea name="vocabulary_content"><%= vocabulary.content %></textarea>
+    <button class="btn-link">Submit</button>
+</form>

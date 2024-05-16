@@ -3,7 +3,7 @@ const db = require('../db');
 const router = express.Router();
 
 router.get('/vocabulary', (req, res) => {
-    const sql = `SELECT vocabulary.id AS vocabulary_id, books.id AS book_id, title, author, content, datetime FROM vocabulary JOIN books ON vocabulary.book_id = books.id WHERE user_id = $1;`;
+    const sql = `SELECT vocabulary.id AS vocabulary_id, books.id AS book_id, title, author, content, datetime FROM vocabulary JOIN books ON vocabulary.book_id = books.id WHERE user_id = $1 ORDER BY datetime;`;
     const sqlParams = [req.session.userId];
 
     db.query(sql, sqlParams, (err, result) => {
@@ -34,7 +34,7 @@ router.get('/vocabulary/:id/edit', (req, res) => {
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
         const vocabulary = result.rows[0];
-        res.render('notes_edit', { vocabulary: vocabulary });
+        res.render('vocabulary_edit', { vocabulary: vocabulary });
     })
 })
 
@@ -48,7 +48,7 @@ router.put('/vocabulary/:id', (req, res) => {
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
         const bookId = result.rows[0].book_id;
-        res.redirect(`/books/${bookId}`)
+        res.redirect('/vocabulary');
     })
 })
 
