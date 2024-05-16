@@ -15,7 +15,7 @@
                     <button class="vocab-info-btn">Info</button>
                     <div class="vocab-edit"><a class="btn-link" href="/vocabulary/<%= vocab.vocabulary_id %>/edit">Edit</a></div>
                     <div class="vocab-delete">
-                        <form action="/vocabulary/<%= vocab.id %>?_method=delete" method="post">
+                        <form action="/vocabulary/<%= vocab.vocabulary_id %>?_method=delete" method="post">
                             <input type="hidden" name="book_id" value="<%= vocab.book_id%>">
                             <button>Delete</button>
                         </form>
@@ -25,3 +25,5 @@
         <% } %>                
     </div>
 <% } %> 
+
+<script src="/vocabulary.js"></script>

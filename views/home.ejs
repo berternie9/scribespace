@@ -1,7 +1,11 @@
 <% if (isLoggedIn) { %>
-    <div class="page-title"><span class="name-span"><%= currentUser.name %></span>'s Library</div>
-    <div class="library">
-        <div class="library-books">
+    <div class="page-title"><span class="name-span"><%= currentUser.name %></span>'s Bookshelf</div>
+    <div class="bookshelf-wrapper">
+        <div class="search-bookshelf-wrapper">
+            <label for="">Search Title/Author:</label>
+            <input class="search-bookshelf-input" type="text" name="search_bookshelf">
+        </div>
+        <div class="bookshelf-books">
             <% for (let book of booksUser) { %>
                 <a href="/books/<%=book.id%>">
                     <div class="book-tile <% if (!book.is_public) { %> custom-book <% } %>">
@@ -10,9 +14,9 @@
                         </div>
                         <div class="book-tile-bottom">
                             <div class="book-title">                         
-                                <div class="property">Title: </div><%= book.title%>
+                                <div class="property">Title: </div><span class="title-text"><%= book.title%></span>
                             </div>
-                            <div class="author"><div class="property">Author: </div><%= book.author %></div>
+                            <div class="author"><div class="property">Author: </div><span class="author-text"><%= book.author %></div></span>
                             <div class="year"><div class="property">Year: </div><%= book.publication_year %></div>
                         </div>
                     </div>
@@ -21,3 +25,5 @@
         </div>
     </div>
 <% } %>
+
+<script src="/home.js"></script>

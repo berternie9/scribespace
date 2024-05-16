@@ -26,7 +26,6 @@ Check out my web app [here](https://scribespace.onrender.com/)!
 - https://www.freepik.com/free-photo/design-space-paper-textured-background_2792135.htm#query=parchment%20texture%20seamless&position=2&from_view=keyword&track=ais_user&uuid=75ffc9b4-1a32-4c76-b86c-9239f5bd6558 (paper background)
 
 ## Next steps
-- Add vocabulary.
 - Search bar for all and library books.
 - Add client side JS. 
 - Google Books API add.

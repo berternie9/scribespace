@@ -47,7 +47,6 @@ router.put('/vocabulary/:id', (req, res) => {
     const sqlParams = [vocabularyContent, datetime, vocabularyId, userId];
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
-        const bookId = result.rows[0].book_id;
         res.redirect('/vocabulary');
     })
 })
@@ -59,8 +58,7 @@ router.delete('/vocabulary/:id', (req, res) => {
     const sqlParams = [vocabularyId, userId];
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
-        const bookId = result.rows[0].book_id;
-        res.redirect(`/books/${bookId}`)
+        res.redirect(`/vocabulary`)
     })
 })
 

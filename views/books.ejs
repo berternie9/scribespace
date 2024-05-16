@@ -1,5 +1,9 @@
 <div class="page-title">Library</div>
-<div class="all-books">
+<div class="library-wrapper">
+    <div class="search-library-wrapper">
+        <label for="">Search Title/Author:</label>
+        <input class="search-library-input" type="text" name="search_library">
+    </div>
     <div class="btn-link-wrapper"><a class="btn-link" href="/books/new">Add custom book</a></div>
     <div class="public-books">
         <% for (let book of booksPublic) { %>
@@ -10,9 +14,9 @@
                     </div>
                     <div class="book-tile-bottom">
                         <div class="book-title">
-                            <div class="property">Title: </div><%= book.title%>
+                            <div class="property">Title: </div><span class="title-text"><%= book.title%></span>
                         </div>
-                        <div class="author"><div class="property">Author: </div><%= book.author %></div>
+                        <div class="author"><div class="property">Author: </div><span class="author-text"><%= book.author %></span></div>
                         <div class="year"><div class="property">Year: </div><%= book.publication_year %></div>
                     </div>
                 </div>
@@ -42,3 +46,5 @@
         </div>
     <% } %>
 </div>
+
+<script src="/library.js"></script>
