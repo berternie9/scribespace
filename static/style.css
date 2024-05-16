@@ -1,10 +1,11 @@
 :root {
     --sans-serif: Arial, Helvetica, sans-serif;
-    --pink: fuchsia;
     --darkpink: rgb(196, 27, 142);
     --lightpink: rgb(210, 113, 153);
     --lightestpink: rgb(213, 146, 174);
+    --palepink: rgba(239, 201, 216, 0.765);
     --blue: #00d3d7;
+    --paleblue: #c9eced;
     --cream: rgb(246, 226, 215);
     --grey: #a0a0a0;
     --transparent-white: rgba(255,255,255,0.3);
@@ -21,13 +22,14 @@
     border-bottom: 2px white solid;
 }
 
-.all-user-reviews-wrapper, .all-vocab-wrapper {
+.all-user-reviews-wrapper, .all-vocab-wrapper, .all-completed-books-wrapper {
     min-height: fit-content;
     max-height: 80vh;
     overflow: auto;
     padding: 0.5rem;
     border-top: 2px white solid;
     border-bottom: 2px white solid;
+    scrollbar-color: var(--palepink) rgba(255, 255, 255, 0.134);
 }
 
 .book-show {
@@ -109,7 +111,7 @@
     border: var(--lightestpink) 2px solid;
 }
 
-.delete-book-btn {
+.delete-book-btn, .add-bookshelf-btn, .completed-book-btn {
     width: fit-content;
     margin: 1rem auto;
 }
@@ -119,6 +121,10 @@
     margin: 1rem auto auto;
     max-width: 5rem;
     text-align: center;
+}
+
+.error {
+    color: red;
 }
 
 .gaegu-regular {
@@ -158,13 +164,13 @@
     font-size: small;
 }
 
-.login-btn, .search-bookshelf-btn {
+.login-btn, .register-btn, .search-bookshelf-btn {
     margin: 0 auto;
     display: block;
     width: fit-content;
 }
 
-.login-email, .login-password {
+.login-email, .login-password, .register-username, .register-email, .register-password, .register-confirm-password {
     margin: 1rem auto;
     width: fit-content;
     color: var(--darkpink);

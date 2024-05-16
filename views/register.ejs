@@ -1,17 +1,25 @@
-<h1>Register</h1>
+<div class="page-title">Register</div>
 
 <% if (locals.errorMessage) { %>
     <p class="error"> <%= errorMessage %> </p>
 <% } %>
 
 <form action="/register" method="post">
-    <label for="">Username</label>
-    <input type="text" name="username">
-    <label for="">Email</label>
-    <input type="email" name="email">
-    <label for="">Password</label>
-    <input type="password" name="password">
-    <label for="">Confirm Password</label>
-    <input type="password" name="confirm_password">
-    <button>Register</button>
+    <div class="register-username">
+        <label for="">Username: </label>
+        <input type="text" name="username">
+    </div>
+    <div class="register-email">
+        <label for="">Email: </label>
+        <input type="email" name="email">
+    </div>
+    <div class="register-password">
+        <label for="">Password: </label>
+        <input type="password" name="password">
+    </div>
+    <div class="register-confirm-password">
+        <label for="">Confirm Password: </label>
+        <input type="password" name="confirm_password">
+    </div>
+    <button class="register-btn">Register</button>
 </form>

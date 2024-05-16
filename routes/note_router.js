@@ -15,7 +15,6 @@ router.post('/notes', (req, res) => {
     })
 })
 
-
 router.get('/notes/:id/edit', (req, res) => {
     const noteId = req.params.id;
     const userId = req.session.userId;

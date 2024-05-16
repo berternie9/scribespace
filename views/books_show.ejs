@@ -8,6 +8,16 @@
         </div>
         <div class="author"><div class="property">Author: </div><%= book.author %></div>
         <div class="year"><div class="property">Year: </div><%= book.publication_year %></div>
+        <% if (!isInLibrary) { %>
+            <form class="add-bookshelf-btn" action="/bookshelf/<%= book.id %>" method="post">
+                <button>Add to bookshelf</button>
+            </form>
+        <% } %>
+        <% if (isInLibrary) { %>
+            <form class="completed-book-btn" action="/bookshelf/<%= book.id %>?_method=put" method="post">
+                <button>Mark as read!</button>
+            </form>
+        <% } %>
         <% if (isFreetextFromUser) { %>
             <div>
                 <a class="btn-link edit-book-btn" href="/books/<%= book.id %>/edit">Edit book details</a>

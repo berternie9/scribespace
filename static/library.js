@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event handlers
     function handleSearchLibraryKeyUp (event) {
-        const searchLibraryValue = event.target.value;
+        const searchLibraryValue = event.target.value.toLowerCase();
         const publicBooksInLibrary = event.target.closest('.library-wrapper').querySelector('.public-books').children;
         const privateBooksInLibrary = event.target.closest('.library-wrapper').querySelector('.private-books').children;
 

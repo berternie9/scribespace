@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event handlers
     function handleSearchBookshelfKeyUp (event) {
-        const searchBookshelfValue = event.target.value;
+        const searchBookshelfValue = event.target.value.toLowerCase();
         const booksInBookshelf = event.target.closest('.bookshelf-wrapper').querySelector('.bookshelf-books').children;
         if (searchBookshelfValue === "") {
             Array.from(booksInBookshelf).forEach((book) => book.className = "");

@@ -1,0 +1,14 @@
+<div class="page-title"><span class="name-span"><%= currentUser.name %></span>'s Completed Books</div>
+<% if (completed_books.length > 0) { %>
+    <div class="page-subtitle"><%= completed_books.length %> in total</div>
+    <div class="all-completed-books-wrapper">
+        <% for (let book of completed_books) { %>
+            <div class="review-block-wrapper">
+                <a href="/books/<%= book.book_id %>"><div class="property">Title: </div><%= book.title%></a>
+                <div class="author"><div class="property">Author: </div><%= book.author %></div>
+                <div class="year"><div class="property">Year: </div><%= book.publication_year %></div>
+                <div class="review-datetime">Completed on: </div><%= book.datetime_completed%>
+            </div>
+        <% } %>                
+    </div>
+<% } %>

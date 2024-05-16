@@ -35,8 +35,8 @@ app.use(session({
 app.use(setCurrentUser);
 app.use(customFunctions);
 
-app.use(homeRouter);
 app.use(sessionRouter);
+app.use(homeRouter);
 app.use(ensureLoggedIn);
 app.use(bookRouter);
 app.use(reviewRouter);

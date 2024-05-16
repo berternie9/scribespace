@@ -21,6 +21,17 @@ router.get('/books/new', (req, res) => {
     res.render('books_new');
 })
 
+router.get('/books/completed', (req, res) => {
+    const sql = `SELECT book_id, books.title, books.author, books.publication_year, datetime_completed FROM books_in_user_library JOIN books ON books_in_user_library.book_id = books.id WHERE user_id = $1 AND datetime_completed IS NOT NULL ORDER BY datetime_completed;`;
+    const sqlParams = [req.session.userId];
+
+    db.query(sql, sqlParams, (err, result) => {
+        if (err) console.log(err);
+        const completed_books = result.rows;
+        res.render('completed_books', { completed_books: completed_books });
+    })
+})
+
 router.post('/books', (req, res) => {
     const title = req.body.title;
     const author = req.body.author;

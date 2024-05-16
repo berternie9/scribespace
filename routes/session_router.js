@@ -10,10 +10,8 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res) => {
     const email = req.body.email;
     const plaintextPassword = req.body.password;
-
     const sql = `SELECT * FROM users WHERE email = $1;`;
     const sqlParams = [email];
-
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
         if (result.rows.length === 0) {
@@ -21,7 +19,6 @@ router.post('/login', (req, res) => {
         }
 
         const hashedPasssword = result.rows[0].password_hash;
-
         bcrypt.compare(plaintextPassword, hashedPasssword, (err, isCorrect) => {
             if (err) console.log(err);
             if (!isCorrect) {
