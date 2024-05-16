@@ -148,11 +148,11 @@
 }
 
 .left-nav {
-    max-width: 50vw;
+    max-width: 70vw;
 }
 
 .right-nav {
-    max-width: 35vw;
+    max-width: 20vw;
 }
 
 .left-nav > *, .right-nav > * {
@@ -297,7 +297,7 @@
 .title {
     display: block;
     width:fit-content;
-    margin: 1rem auto;
+    margin: 2rem auto auto;
     font-size: 2.5rem;
     color: var(--darkpink);
 }
