@@ -10,34 +10,36 @@
     <link rel="stylesheet" href="/style.css">
     <title>ScribeSpace</title>
 </head>
-<div class="page-wrapper">
-    <header>
-        <nav>
-            <div class="left-nav">
-                <% if (isLoggedIn) { %>
-                    <a href="/bookshelf"><span class="name-span"><%= currentUser.name %></span>'s Bookshelf</a>
-                    <a href="/books">Library</a>
-                    <a href="/reviews"><span class="name-span"><%= currentUser.name %></span>'s Reviews</a>
-                    <a href="/vocabulary"><span class="name-span"><%= currentUser.name %></span>'s Vocabulary</a>
-                    <a href="/books/completed"><span class="name-span"><%= currentUser.name %></span>'s Completed Books</a>
-                <% } %>
-            </div>
-            <div class="right-nav">
-                <% if (isLoggedIn) { %>
-                    <form action="/logout?_method=delete" method="post">
-                        <button class="logout">Logout</button>
-                    </form>
-                <% } else { %>
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
-                <% } %>
-            </div>
-        </nav>
-        <div><a class="title" href="/bookshelf">ScribeSpace</a></div>
-    </header>
-    <main class="main-content">
-        <%- body %>
-    </main>
-</div>
-<footer></footer>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <nav>
+                <div class="left-nav">
+                    <% if (isLoggedIn) { %>
+                        <a href="/bookshelf"><span class="name-span"><%= currentUser.name %></span>'s Bookshelf</a>
+                        <a href="/books">Library</a>
+                        <a href="/reviews"><span class="name-span"><%= currentUser.name %></span>'s Reviews</a>
+                        <a href="/vocabulary"><span class="name-span"><%= currentUser.name %></span>'s Vocabulary</a>
+                        <a href="/books/completed"><span class="name-span"><%= currentUser.name %></span>'s Completed Books</a>
+                    <% } %>
+                </div>
+                <div class="right-nav">
+                    <% if (isLoggedIn) { %>
+                        <form action="/logout?_method=delete" method="post">
+                            <button class="logout">Logout</button>
+                        </form>
+                    <% } else { %>
+                        <a href="/login">Login</a>
+                        <a href="/register">Register</a>
+                    <% } %>
+                </div>
+            </nav>
+            <div><a class="title" href="/bookshelf">ScribeSpace</a></div>
+        </header>
+        <main class="main-content">
+            <%- body %>
+        </main>
+    </div>
+    <footer></footer>
+</body>
 </html>

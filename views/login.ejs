@@ -1,17 +1,19 @@
-<div class="page-title">Login</div>
-
-<% if (locals.errorMessage) { %>
-    <p class="error"> <%= errorMessage %> </p>
-<% } %>
-
-<form action="/login" method="post">
-    <div class="login-email">
-        <label for="">Email: </label>
-        <input type="text" name="email">
-    </div>
-    <div class="login-password">
-        <label for="">Password: </label>
-        <input type="password" name="password">
-    </div>
-    <button class="login-btn">Login</button>
-</form>
+<div class="login-wrapper">
+    <div class="page-title">Login</div>
+    
+    <% if (locals.errorMessage) { %>
+        <p class="error"> <%= errorMessage %> </p>
+    <% } %>
+    
+    <form action="/login" method="post">
+        <div class="login-email">
+            <label for="">Email: </label>
+            <input type="text" name="email">
+        </div>
+        <div class="login-password">
+            <label for="">Password: </label>
+            <input type="password" name="password">
+        </div>
+        <button class="login-btn">Login</button>
+    </form>
+</div>
