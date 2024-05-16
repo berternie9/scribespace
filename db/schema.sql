@@ -107,6 +107,7 @@ CREATE TABLE notes (
 CREATE TABLE vocabulary (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES users (id) ON DELETE CASCADE,
+    book_id INTEGER NOT NULL REFERENCES books (id) ON DELETE CASCADE,
     content TEXT NOT NULL,
     datetime TIMESTAMP NOT NULL
 );

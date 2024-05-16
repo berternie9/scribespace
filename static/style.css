@@ -21,7 +21,7 @@
     border-bottom: 2px white solid;
 }
 
-.all-user-reviews-wrapper {
+.all-user-reviews-wrapper, .all-vocab-wrapper {
     min-height: fit-content;
     max-height: 80vh;
     overflow: auto;
@@ -31,18 +31,18 @@
 }
 
 .book-show {
-    margin: 1rem 0;
+    margin: 1rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
+    gap: 1.5rem;
 }
 
 .book-show-top {
     border-radius: 20px;
     overflow: hidden;
     margin: 1rem 0;
-    width: fit-content;
+    width: 50vw;;
     border: 2px white solid;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .book-show-img {
-    width: var(--book-show-width);
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -66,7 +66,7 @@
     display: grid;
     grid-template-rows: max-content 1fr;
     border: 2px white solid;
-  }
+}
   
 .book-tile:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -102,6 +102,7 @@
     margin-bottom: 1rem;
     display: inline-block;
     color: var(--darkpink);
+    font-size: small;
 }
 
 .custom-book {
@@ -116,7 +117,8 @@
 .edit-book-btn {
     display: block;
     margin: 1rem auto auto;
-    width: fit-content;
+    max-width: 5rem;
+    text-align: center;
 }
 
 .gaegu-regular {
@@ -131,7 +133,16 @@
 
 .left-nav, .right-nav {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.left-nav {
+    max-width: 50vw;
+}
+
+.right-nav {
+    max-width: 35vw;
 }
 
 .left-nav > *, .right-nav > * {
@@ -139,6 +150,8 @@
     border-radius: 5px;
     background: var(--transparent-white);
     padding: 3px 4px;
+    height: fit-content;
+    font-size: small;
 }
 
 .login-btn {
@@ -162,7 +175,7 @@
 }
 
 .main-content {
-    width: fit-content;
+    max-width: 80vw;
     margin: 0 auto;
 }
 
@@ -219,25 +232,25 @@
     margin: 1rem 0;
 }
 
-.review-textbox > *, .note-textbox > * {
+.review-textbox > *, .note-textbox > *, .vocab-textbox > * {
     display: block;
     margin: 0.5rem 0;
 }
 
-.review-textbox, .note-textbox {
+.review-textbox, .note-textbox, .vocab-textbox {
     margin: 1rem 0;
 }
 
-.review-block-wrapper, .note-block-wrapper {
+.review-block-wrapper, .note-block-wrapper, .vocab-block-wrapper {
     border-bottom: 1px var(--lightestpink) solid;
     padding-bottom: 2rem;
 }
 
-.review-block-wrapper:last-child, .note-block-wrapper:last-child {
+.review-block-wrapper:last-child, .note-block-wrapper:last-child, .vocab-block-wrapper:last-child {
     border-bottom: none;
 }
 
-.review-content, .review-datetime, .review-writer, .review-my-review, .new-note, .note-content, .note-datetime {
+.review-content, .review-datetime, .review-writer, .review-my-review, .new-note, .note-content, .note-datetime, .new-vocab, .vocab-datetime {
     color: var(--darkpink);
 }
 
@@ -251,18 +264,26 @@
     display: block;
     width:fit-content;
     margin: 1rem auto;
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     color: var(--darkpink);
 }
 
+.vocab-content {
+    margin-bottom: 1rem;
+}
 
+.vocab-textbox textarea {
+    min-width: 5rem;
+    height: 2.2rem;
+}
 
 
 
 
 body {
     min-height: 100%;
-    background: var(--cream);
+    background-color: var(--cream);
+    background-image: linear-gradient(var(--transparent-white), var(--transparent-white)), linear-gradient(rgba(252, 213, 192, 0.3), rgba(252, 213, 192, 0.3)), url("paper.jpg");
 }
 
 button {
@@ -317,6 +338,54 @@ textarea {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         justify-content: space-between;
+    }
+
+    .left-nav, .right-nav {
+        gap: 1rem;
+    }
+    
+    .left-nav {
+        max-width: 50vw;
+    }
+    
+    .right-nav {
+        max-width: 50vw;
+    }
+    
+    .left-nav > *, .right-nav > * {
+        font-size: medium;
+    }
+
+    .title {
+        font-size: 3.2rem;
+    }
+
+    .book-show {
+        gap: 4rem;
+    }
+
+    .book-show-top {
+        width: fit-content;
+    }
+
+    .book-show-bottom {
+        width: fit-content;
+    }
+
+    .book-show-img {
+        width: var(--book-show-width);
+    }
+
+    .main-content {
+        width: fit-content;
+    }
+
+    .edit-book-btn {
+        width: fit-content;
+    }
+
+    .btn-link {
+        font-size: medium;
     }
 }
 

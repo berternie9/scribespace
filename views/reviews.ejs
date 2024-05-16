@@ -1,13 +1,16 @@
-<div class="all-user-reviews-wrapper">
-    <% for (let review of userReviews) { %>
-        <div class="review-block-wrapper">
-            <a href="/books/<%= review.book_id %>"><div class="property">Title: </div><%= review.title%></a>
-            <div class="author"><div class="property">Author: </div><%= review.author %></div>
-            <div class="year"><div class="property">Year: </div><%= review.publication_year %></div>
-            <div class="review-content-wrapper">
-                <div class="review-content">Review: </div><%= review.content%>
+<div class="page-title"><span class="name-span"><%= currentUser.name %></span>'s Reviews</div>
+<% if (userReviews.length > 0) { %>
+    <div class="all-user-reviews-wrapper">
+        <% for (let review of userReviews) { %>
+            <div class="review-block-wrapper">
+                <a href="/books/<%= review.book_id %>"><div class="property">Title: </div><%= review.title%></a>
+                <div class="author"><div class="property">Author: </div><%= review.author %></div>
+                <div class="year"><div class="property">Year: </div><%= review.publication_year %></div>
+                <div class="review-content-wrapper">
+                    <div class="review-content">Review: </div><%= review.content%>
+                </div>
+                <div class="review-datetime">Submitted on: </div><%= review.datetime%>
             </div>
-            <div class="review-datetime">Submitted on: </div><%= review.datetime%>
-        </div>
-    <% } %>                
-</div>
+        <% } %>                
+    </div>
+<% } %>

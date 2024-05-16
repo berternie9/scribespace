@@ -1,0 +1,26 @@
+<div class="page-title"><span class="name-span"><%= currentUser.name %></span>'s Vocabulary</div>
+<% if (vocabulary.length > 0) { %>
+    <div class="all-vocab-wrapper">
+        <% for (let vocab of vocabulary) { %>
+            <div class="vocab-block-wrapper">
+                <div class="vocab-content-wrapper">
+                    <div class="vocab-content"><%= vocab.content%></div>
+                </div>
+                <div class="vocab-info">
+                    <a href="/vocabulary/<%= vocab.book_id %>"><div class="property">Title: </div><%= vocab.title%></a>
+                    <div class="author"><div class="property">Author: </div><%= vocab.author %></div>
+                    <div class="vocab-datetime">Submitted on: </div><%= vocab.datetime%>
+                </div>
+                <div class="vocab-block-right">
+                    <div class="vocab-edit"><a class="btn-link" href="/vocabulary/<%= vocab.vocabulary_id %>/edit">Edit</a></div>
+                    <div class="vocab-delete">
+                        <form action="/vocabulary/<%= vocab.id %>?_method=delete" method="post">
+                            <input type="hidden" name="book_id" value="<%= vocab.book_id%>">
+                            <button>Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } %>                
+    </div>
+<% } %> 

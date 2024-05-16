@@ -10,6 +10,7 @@ const homeRouter = require('./routes/home_router.js');
 const bookRouter = require('./routes/book_router.js');
 const reviewRouter = require('./routes/review_router.js');
 const noteRouter = require('./routes/note_router.js');
+const vocabularyRouter = require('./routes/vocabulary_router.js');
 const setCurrentUser = require('./middlewares/set_current_user.js');
 const ensureLoggedIn = require('./middlewares/ensure_logged_in.js');
 const customFunctions = require('./middlewares/custom_functions.js');
@@ -40,6 +41,7 @@ app.use(ensureLoggedIn);
 app.use(bookRouter);
 app.use(reviewRouter);
 app.use(noteRouter);
+app.use(vocabularyRouter);
 
 app.listen(port, () => {
     console.log(`Working on port ${port}`);

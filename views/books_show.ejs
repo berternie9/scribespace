@@ -50,7 +50,14 @@
         <input type="hidden" name="book_id" value="<%= book.id%>">
         <button>Post</button>
     </form>
+    <form class="vocab-textbox" action="/vocabulary" method="post">
+        <label class="new-vocab" for="">New vocabulary: </label>
+        <textarea name="vocab_content"></textarea>
+        <input type="hidden" name="book_id" value="<%= book.id%>">
+        <button>Post</button>
+    </form>
 <% } %>
+
 
 <% if (userReview) { %>
     <div class="page-subtitle">My Review:</div>
