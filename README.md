@@ -36,6 +36,9 @@ Find my Trello Board for ScribeSpace [here](https://trello.com/invite/b/0VX8Lv21
 #### Wireframes 
 ![Wireframe](/static/wireframes-scribespace-14.5.24.png)
 
+#### ER Diagram
+![ER Diagram](/static/er-diagram.png)
+
 ## Technologies used
 - Node.js
 - Express.js
