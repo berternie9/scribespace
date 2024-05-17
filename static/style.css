@@ -22,7 +22,7 @@
     border-bottom: 2px white solid;
 }
 
-.all-user-reviews-wrapper, .all-vocab-wrapper, .all-completed-books-wrapper {
+.all-user-reviews-wrapper, .all-vocab-wrapper, .all-completed-books-wrapper, .all-reviews-wrapper, .user-review-wrapper, .all-notes-wrapper {
     min-height: fit-content;
     max-height: 80vh;
     overflow: auto;
