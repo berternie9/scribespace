@@ -47,7 +47,7 @@ router.post('/register', (req, res) => {
 
     if (plaintextPassword !== confirmPlaintextPassword) {
         console.log('passwords do not match');
-        return res.render('/register',  { errorMessage: "Passwords do not match." });
+        return res.render('register',  { errorMessage: "Passwords do not match." });
     }
     let sql = `SELECT * FROM users WHERE email = $1;`;
     let sqlParams = [email];
@@ -67,6 +67,31 @@ router.post('/register', (req, res) => {
                     if (err) console.log(err);
                     res.render('login');
                 })
+            })
+        })
+    })
+})
+
+router.get('/change_password', (req, res) => {
+    res.render('change_password');
+})
+
+router.put('/change_password', (req, res) => {
+    const userId = req.session.userId;
+    const newPlaintextPassword = req.body.new_password;
+    const confirmPlaintextPassword = req.body.confirm_password;
+    if (newPlaintextPassword !== confirmPlaintextPassword) {
+        console.log('passwords do not match');
+        return res.render('change_password',  { errorMessage: "Passwords do not match." });
+    }
+    const saltRounds = 10;
+    bcrypt.genSalt(saltRounds, (err, salt) => {
+        bcrypt.hash(newPlaintextPassword, salt, (err, hash) => {
+            sql = `UPDATE users SET password_hash = $1 WHERE id = $2;`;
+            sqlParams = [hash, userId];
+            db.query(sql, sqlParams, (err, result) => {
+                if (err) console.log(err);
+                res.redirect('/bookshelf');
             })
         })
     })
