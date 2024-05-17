@@ -51,7 +51,9 @@ Find my Trello Board for ScribeSpace [here](https://trello.com/invite/b/0VX8Lv21
 
 ## Acknowledgements
 - Placehold.co (placeholder book images)
-- https://www.freepik.com/free-photo/design-space-paper-textured-background_2792135.htm#query=parchment%20texture%20seamless&position=2&from_view=keyword&track=ais_user&uuid=75ffc9b4-1a32-4c76-b86c-9239f5bd6558 (paper background)
+- [FreePik](https://www.freepik.com/free-photo/design-space-paper-textured-background_2792135.htm#query=parchment%20texture%20seamless&position=2&from_view=keyword&track=ais_user&uuid=75ffc9b4-1a32-4c76-b86c-9239f5bd6558) (paper background)
+- FigJam (to make wireframe)
+- Lucid App (to make ER diagram)
 
 ## Next steps
 - Google Books API add.
