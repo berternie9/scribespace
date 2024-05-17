@@ -58,4 +58,3 @@ Find my Trello Board for ScribeSpace [here](https://trello.com/invite/b/0VX8Lv21
 ## Next steps
 - Google Books API add.
 - Include an option to have a virtual book club.
-- Improve UX on mobile.
