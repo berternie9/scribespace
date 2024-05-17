@@ -14,8 +14,15 @@
             </form>
         <% } %>
         <% if (isInLibrary) { %>
-            <form class="completed-book-btn" action="/bookshelf/<%= book.id %>?_method=put" method="post">
-                <button>Mark as read!</button>
+            <% if (!bookInUserLibrary.datetime_completed) { %>
+                <form class="completed-book-btn" action="/bookshelf/<%= book.id %>?_method=put" method="post">
+                    <button>Mark as read!</button>
+                </form>
+            <% } else { %>
+                <div class="completed-on">Completed on: <span class="completed-on-text"><%= bookInUserLibrary.datetime_completed %></span></div>
+            <% } %>
+            <form class="remove-bookshelf-btn" action="/bookshelf/<%= book.id %>?_method=delete" method="post">
+                <button>Remove from bookshelf</button>
             </form>
         <% } %>
         <% if (isFreetextFromUser) { %>

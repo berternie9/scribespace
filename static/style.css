@@ -107,11 +107,20 @@
     font-size: small;
 }
 
+.completed-on {
+    max-width: 12rem;
+    margin-top: 1rem;
+}
+
+.completed-on-text {
+    color: initial;
+}
+
 .custom-book {
     border: var(--lightestpink) 2px solid;
 }
 
-.delete-book-btn, .add-bookshelf-btn, .completed-book-btn {
+.delete-book-btn, .add-bookshelf-btn, .completed-book-btn, .remove-bookshelf-btn {
     width: fit-content;
     margin: 1rem auto;
 }
@@ -270,7 +279,7 @@
     border-bottom: none;
 }
 
-.review-content, .review-datetime, .review-writer, .review-my-review, .new-note, .note-content, .note-datetime, .new-vocab, .vocab-datetime {
+.review-content, .review-datetime, .review-writer, .review-my-review, .new-note, .note-content, .note-datetime, .new-vocab, .vocab-datetime, .completed-on {
     color: var(--darkpink);
 }
 

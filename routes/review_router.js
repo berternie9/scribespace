@@ -48,7 +48,7 @@ router.put('/reviews/:id', (req, res) => {
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
         const bookId = result.rows[0].book_id;
-        res.redirect(`/books/${bookId}`)
+        res.redirect(`/books/${bookId}`);
     })
 })
 
@@ -61,7 +61,7 @@ router.delete('/reviews/:id', (req, res) => {
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
         const bookId = result.rows[0].book_id;
-        res.redirect(`/books/${bookId}`)
+        res.redirect(`/books/${bookId}`);
     })
 })
 

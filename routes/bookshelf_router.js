@@ -21,7 +21,7 @@ router.post('/bookshelf/:id', (req, res) => {
     const sqlParams = [bookId, userId, datetime];
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
-        res.redirect('/');
+        res.redirect('/bookshelf');
     })
 })
 
@@ -34,7 +34,18 @@ router.put('/bookshelf/:id', (req, res) => {
     const sqlParams = [datetime, bookId, userId];
     db.query(sql, sqlParams, (err, result) => {
         if (err) console.log(err);
-        res.redirect('/books/completed');
+        res.redirect(`/books/${bookId}`);
+    })
+})
+
+router.delete('/bookshelf/:id', (req, res) => {
+    const bookId = req.params.id;
+    const userId = req.session.userId;
+    const sql = `DELETE FROM books_in_user_library WHERE book_id = $1 AND user_id = $2;`;
+    const sqlParams = [bookId, userId];
+    db.query(sql, sqlParams, (err, result) => {
+        if (err) console.log(err);
+        res.redirect(`/bookshelf`);
     })
 })
 

@@ -70,6 +70,7 @@ router.get('/books/:id', (req, res) => {
             if (result.rows.length > 0) {
                 isInLibrary = true;
             } 
+            const bookInUserLibrary = result.rows[0];
             const sql = `SELECT * FROM freetext_books_from_user WHERE book_id = $1 and user_id = $2;`;
             const sqlParams = [bookId, req.session.userId];
             db.query(sql, sqlParams, (err, result) => {
@@ -95,7 +96,7 @@ router.get('/books/:id', (req, res) => {
                         db.query(sql, sqlParams, (err, result) => {
                             if (err) console.log(err);
                             notes = result.rows;
-                            res.render('books_show', { book: book, isInLibrary: isInLibrary, isFreetextFromUser: isFreetextFromUser, userReview: userReview, allReviews: allReviews, notes: notes });
+                            res.render('books_show', { book: book, bookInUserLibrary: bookInUserLibrary, isInLibrary: isInLibrary, isFreetextFromUser: isFreetextFromUser, userReview: userReview, allReviews: allReviews, notes: notes });
                         })
                     })
                 })
