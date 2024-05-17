@@ -47,7 +47,6 @@ Find my Trello Board for ScribeSpace [here](https://trello.com/invite/b/0VX8Lv21
 - Javascript
 - CSS
 - HTML
-- Render
 
 ## Acknowledgements
 - Placehold.co (placeholder book images)
