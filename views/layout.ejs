@@ -26,7 +26,7 @@
                 <div class="right-nav">
                     <% if (isLoggedIn) { %>
                         <a href="/change_password">Change Password</a>
-                        <form action="/logout?_method=put" method="post">
+                        <form action="/logout?_method=delete" method="post">
                             <button class="logout">Logout</button>
                         </form>
                     <% } else { %>
