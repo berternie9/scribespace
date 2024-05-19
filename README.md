@@ -8,7 +8,7 @@ ScribeSpace is an online reading companion, where you can:
 ..and much more!
 
 ### Getting started
-ScribeSpace is a web app, built with a Node/Express/Postgres stack. It was originally deployed on Render ([here](https://scribespace.onrender.com/)), and is not currently live.  
+ScribeSpace is a web app, built with a Node/Express/PostgreSQL stack. It was originally deployed on Render ([here](https://scribespace.onrender.com/)), and is not currently live.  
 
 But you can check out my video demonstration on YouTube below! 
 
