@@ -34,9 +34,6 @@ But you can check out my video demonstration on YouTube below!
 #### Completed Books
 ![Completed Books](/static/completed_books.png)
 
-#### Wireframes 
-![Wireframe](/static/wireframes-scribespace-14.5.24.png)
-
 #### ER Diagram
 ![ER Diagram](/static/er-diagram.png)
 
